@@ -1,0 +1,38 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] s = new int[n];
+        for(int s_i=0; s_i < n; s_i++){
+            s[s_i] = in.nextInt();
+        }
+        int maxcount = 0, mincount = 0;
+        int maxscore = s[0];
+        int minscore = s[0];
+        
+        //System.out.println(maxcount);
+        //System.out.println(mincount);
+        //System.out.println(maxscore);
+        //System.out.println(minscore);
+        
+        for(int i = 0; i < n; i++){
+            if(s[i] > maxscore){
+                maxscore = s[i];
+                maxcount++;
+            }
+            if(s[i] < minscore){
+                minscore = s[i];
+                mincount++;
+            }
+        }
+        System.out.print(maxcount + " " + mincount);
+        
+    }
+}
