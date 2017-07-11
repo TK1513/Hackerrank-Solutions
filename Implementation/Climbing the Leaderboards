@@ -1,0 +1,51 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution 
+{
+
+    public static void main(String[] args) 
+    {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int scores;
+        int prevScore = in.nextInt();
+        int currentScore;
+        List<Integer> dRanks = new ArrayList<>();
+        dRanks.add(prevScore);
+        
+        for(scores = 1; scores < n; scores++)
+        {
+            currentScore = in.nextInt();
+            if(currentScore < prevScore)
+            {
+                dRanks.add(currentScore);
+                prevScore = currentScore;
+            }
+        }
+        int m = in.nextInt();
+        int a;
+        int aliceScore;
+        int aRanks = dRanks.size()-1;
+        
+        for(a = 0; a < m; a++){
+        aliceScore = in.nextInt();
+        
+        while(aRanks > 0 && aliceScore > dRanks.get(aRanks))
+        {
+            aRanks--;
+        }
+        if(aliceScore >= dRanks.get(aRanks))
+        {
+            System.out.println(aRanks + 1);
+        }
+        else
+        {
+            System.out.println(aRanks + 2);
+        }
+        }
+    }
+}
