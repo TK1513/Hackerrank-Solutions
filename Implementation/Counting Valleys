@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        String s = in.next();
+        int total = 0, count = 0;
+        //System.out.println(n);
+        //System.out.println(s);
+        Character c1 = new Character('U');
+        Character c2 = new Character('D');
+        
+        for(int i = 0; i < s.length(); i++){
+            char c = s.charAt(i);
+                if(c1.equals(c)){
+                    count++;
+                }
+            else if(c2.equals(c)){
+                count--;
+                if(count == -1){
+                    total++;
+                }
+            }
+        }
+        System.out.println(total);
+    }
+}
