@@ -1,0 +1,37 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int solve(int n, int p){
+        int pages = 0;
+        int half = n/2;
+        
+        if(p > half){
+            int back = n - p;
+            if(back > 1){
+                pages = back / 2;
+            }
+            else if (n%2 == 0 && back ==1){
+                pages = 1;
+            }
+        }
+        else{
+            if(p > 1){
+                pages = p/2;
+            }
+        }
+        return pages;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int p = in.nextInt();
+        int result = solve(n, p);
+        System.out.println(result);
+    }
+}
