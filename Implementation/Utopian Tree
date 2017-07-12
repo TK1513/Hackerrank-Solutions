@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        
+        Scanner in = new Scanner(System.in);
+        
+        int tree = in.nextInt();
+        int height = 1;
+        int [] trees = new int[tree];
+        
+        for (int i = 0; i < tree; i++){
+            height = 1;
+            int n = in.nextInt();
+            if(n > 0){
+            for(int j = 0; j < n; j++){
+                if((j % 2 == 0)){
+                    height = height * 2;
+                }
+                else{
+                    height += 1;
+                }
+            }
+        }
+            trees[i] = height;
+        }
+        for(int k = 0; k < tree; k++){
+            System.out.println(trees[k]);
+        }
+    }
+    }
