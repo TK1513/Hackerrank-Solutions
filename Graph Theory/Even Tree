@@ -1,0 +1,76 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution 
+{
+
+    public static void main(String[] args) 
+    {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner scan = new Scanner(System.in);
+        int v = scan.nextInt();
+        int e = scan.nextInt();
+        int[] t = new int[v + 1];
+        
+        Map<Integer,Integer> map = new HashMap<>();
+        
+        for(int i = 0; i < e; i++)
+        {
+            int c = scan.nextInt();
+            int p = scan.nextInt();
+            t[c] = p;
+            
+            if(map.get(p) == null)
+            {
+                map.put(p,1);
+            }  
+             if(map.get(c) == null)
+             {
+                map.put(c,1);
+            }
+            
+            int count = map.get(p);
+            map.put(p,++count);
+
+       }
+        
+        int res = 0;
+        
+        for(int nodeI = t.length - 1; nodeI > 1; nodeI--)
+        {
+            if(map.get(nodeI) % 2 == 0)
+            {
+                boolean even = false;
+                
+                for(int i = t.length - 1; i > 1; i--)
+                {
+                    if(t[i] == nodeI)
+                    {
+                        int n = i;
+                        
+                        if(map.get(n) % 2 == 0)
+                        {
+                            even = true;
+                        }
+                   }
+                }
+            
+            
+            if(!even)
+            {
+                res++;
+                int par = t[nodeI];
+                t[nodeI] = 0;
+                int count = map.get(par);
+                map.put(par, --count);
+            }
+        }
+        
+    }
+        System.out.println(res);
+}
+}
