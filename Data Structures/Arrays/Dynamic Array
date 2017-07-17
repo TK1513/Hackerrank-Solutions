@@ -1,0 +1,36 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int q = sc.nextInt();
+        
+        List<Integer>[] seq = new List[n];
+        for(int i = 0; i < n; i++){
+            seq[i] = new ArrayList<>();
+        }
+        int ans = 0;
+        for(int j = 0; j < q; j++){
+            int c = sc.nextInt();
+            int x = sc.nextInt();
+            int y = sc.nextInt();
+            
+            List<Integer> s = seq[(x^ans)%n];
+            switch (c){
+                case 1:
+                    s.add(y);
+                    break;
+                
+                case 2:
+                    ans = s.get(y%s.size());
+                    System.out.println(ans);
+                    break;
+            }
+        }
+    }
+}
