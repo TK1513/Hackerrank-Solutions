@@ -1,0 +1,7 @@
+if __name__ == '__main__':
+    N = int(input())
+    names = {}
+    for _ in range(N):
+        s = raw_input().split(' ')
+        names[s[0]] = float(s[1])+float(s[2])+float(s[3])
+    print "%.2f" % float(names[raw_input()]/3)
