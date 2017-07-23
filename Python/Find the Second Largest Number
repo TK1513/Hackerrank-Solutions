@@ -1,0 +1,6 @@
+if __name__ == '__main__':
+    n = int(raw_input())
+    arr = map(int, raw_input().split())
+    second_max = sorted(set(arr))[-2]
+    print (second_max)
+    
