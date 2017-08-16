@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int k = in.nextInt();
+        int c[] = new int[n];
+        
+        for(int i=0; i < n; i++){
+            c[i] = in.nextInt();
+        }
+        
+        int energy = 100;
+        int charge = 0;
+        
+        do{
+            charge = (charge + k) % n;
+            if(c[charge] == 1){
+                energy -= 2;
+            }
+            energy--;
+        }while (charge != 0);
+        System.out.println(energy);
+        
+        
+    }
+}
