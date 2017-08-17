@@ -1,0 +1,57 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution 
+{
+
+    public static void main(String[] args) 
+    {
+        Scanner in = new Scanner(System.in);
+        String s = in.next();
+        String t = in.next();
+        int k = in.nextInt();
+        
+        boolean response = solve(s,t,k);
+        
+        if(response == true){
+            System.out.println("Yes");
+        }
+        else{
+            System.out.println("No");
+    }
+    }
+    
+    public static boolean solve(String s, String t, int k)
+    {
+        if(k >= s.length() + t.length())
+        {
+            return true;
+        }
+        
+        int d = s.length();
+        for (int i = 0; i < s.length(); i++)
+        {
+            if((i >= t.length() || s.charAt(i) != t.charAt(i)))
+            {
+                d = i;
+                break;
+            }
+  }
+        
+           int m = (s.length() - d) + (t.length() - d);
+            if(k < m){
+                return false;
+            }
+        
+                   if(((k - m) & 1) == 1){
+                return false;
+            }
+            else{
+                return true;
+            }
+    }
+    
+}
