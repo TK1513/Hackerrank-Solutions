@@ -1,0 +1,39 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner scan = new Scanner(System.in);
+        int actualD = scan.nextInt();
+        int actualM = scan.nextInt();
+        int actualY = scan.nextInt();
+        
+        int expectedD = scan.nextInt();
+        int expectedM = scan.nextInt();
+        int expectedY = scan.nextInt();
+        
+        int fine = 0;
+        
+        if(actualY > expectedY)
+        {
+            fine = 10000;
+        }
+        else if(actualY == expectedY)
+        {
+            if(actualM > expectedM)
+            {
+                fine = 500 * (actualM - expectedM);
+            }
+            else if(actualM == expectedM)
+            {
+                if(actualD > expectedD)
+                {
+                    fine = 15 * (actualD - expectedD);
+                }
+            }
+        }
+        System.out.println(fine);
+    }
+}
