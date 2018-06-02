@@ -1,0 +1,7 @@
+eCount = int(input())
+eSubs = set(map(int, input().split()))
+
+fCount = int(input())
+fSubs = set(map(int, input().split()))
+
+print (len(eSubs.difference(fSubs)))
