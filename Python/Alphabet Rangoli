@@ -1,0 +1,15 @@
+import string
+
+def print_rangoli(size):
+    s = size - 1
+    for i in range(size - 1, 0, -1):
+        row = ['-'] * (2*size-1)
+        for j in range(size-i):
+            row[s-j] = row[s+j] = string.ascii_lowercase[j+i]
+        print ('-'.join(row))
+    
+    for i in range(0, size):
+        row = ['-'] * (2*size-1)
+        for j in range(size-i):
+            row[s-j] = row[s+j] = string.ascii_lowercase[j+i]
+        print ('-'.join(row))
