@@ -1,0 +1,9 @@
+a = input()
+M = set(input().split())
+c = input()
+N= set(input().split())
+
+result = sorted((M-N).union(N-M), key = int)
+
+for i in result:
+    print (i)
